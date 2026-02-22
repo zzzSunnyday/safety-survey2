@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>安全培训调查问卷</title>
+    <script>
+        // 页面加载完成后执行
+        document.addEventListener('DOMContentLoaded', function() {
+            // 问题2的其他选项
+            const q2f = document.getElementById('q2-f');
+            const q2other = document.getElementById('q2-other');
+            q2other.disabled = !q2f.checked;
+            q2f.addEventListener('change', function() {
+                q2other.disabled = !this.checked;
+            });
+            
+            // 问题3的其他选项
+            const q3g = document.getElementById('q3-g');
+            const q3other = document.getElementById('q3-other');
+            q3other.disabled = !q3g.checked;
+            q3g.addEventListener('change', function() {
+                q3other.disabled = !this.checked;
+            });
+            
+            // 问题4的其他选项
+            const q4e = document.getElementById('q4-e');
+            const q4other = document.getElementById('q4-other');
+            q4other.disabled = !q4e.checked;
+            q4e.addEventListener('change', function() {
+                q4other.disabled = !this.checked;
+            });
+            
+            // 问题5的其他选项
+            const q6f = document.getElementById('q6-f');
+            const q6other = document.getElementById('q6-other');
+            q6other.disabled = !q6f.checked;
+            q6f.addEventListener('change', function() {
+                q6other.disabled = !this.checked;
+            });
+            
+            // 问题6的其他选项
+            const q8e = document.getElementById('q8-e');
+            const q8other = document.getElementById('q8-other');
+            q8other.disabled = !q8e.checked;
+            q8e.addEventListener('change', function() {
+                q8other.disabled = !this.checked;
+            });
+            
+            // 表单提交验证
+            const form = document.querySelector('form');
+            form.addEventListener('submit', function(e) {
+                // 验证问题2至少选择一个选项
+                const q2Checkboxes = document.querySelectorAll('input[name="q2"]');
+                const q2Checked = Array.from(q2Checkboxes).some(checkbox => checkbox.checked);
+                if (!q2Checked) {
+                    e.preventDefault();
+                    alert('请回答问题二');
+                    return;
+                }
+                
+                // 验证问题3至少选择一个选项
+                const q3Checkboxes = document.querySelectorAll('input[name="q3"]');
+                const q3Checked = Array.from(q3Checkboxes).some(checkbox => checkbox.checked);
+                if (!q3Checked) {
+                    e.preventDefault();
+                    alert('请回答问题三');
+                    return;
+                }
+                
+                // 验证问题4至少选择一个选项
+                const q4Checkboxes = document.querySelectorAll('input[name="q4"]');
+                const q4Checked = Array.from(q4Checkboxes).some(checkbox => checkbox.checked);
+                if (!q4Checked) {
+                    e.preventDefault();
+                    alert('请回答问题四');
+                    return;
+                }
+                
+                // 验证问题5至少选择一个选项
+                const q6Checkboxes = document.querySelectorAll('input[name="q6"]');
+                const q6Checked = Array.from(q6Checkboxes).some(checkbox => checkbox.checked);
+                if (!q6Checked) {
+                    e.preventDefault();
+                    alert('请回答问题五');
+                    return;
+                }
+                
+                // 验证问题6至少选择一个选项
+                const q8Checkboxes = document.querySelectorAll('input[name="q8"]');
+                const q8Checked = Array.from(q8Checkboxes).some(checkbox => checkbox.checked);
+                if (!q8Checked) {
+                    e.preventDefault();
+                    alert('请回答问题六');
+                    return;
+                }
+                
+                // 验证问题7至少选择一个选项
+                const q9Checkboxes = document.querySelectorAll('input[name="q9"]');
+                const q9Checked = Array.from(q9Checkboxes).some(checkbox => checkbox.checked);
+                if (!q9Checked) {
+                    e.preventDefault();
+                    alert('请回答问题七');
+                    return;
+                }
+                
+                // 验证问题8至少选择一个选项
+                const q10Checkboxes = document.querySelectorAll('input[name="q10"]');
+                const q10Checked = Array.from(q10Checkboxes).some(checkbox => checkbox.checked);
+                if (!q10Checked) {
+                    e.preventDefault();
+                    alert('请回答问题八');
+                    return;
+                }
+            });
+        });
+    </script>
+    <style>
+        body {
+            font-family: SimHei, sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #0066cc;
+        }
+        .publisher-info {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #666;
+            font-size: 14px;
+        }
+        .publisher-info span {
+            margin: 0 50px;
+        }
+        .section {
+            margin-bottom: 30px;
+        }
+        h2 {
+            color: #333;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 10px;
+            font-size: 18px;
+        }
+        .form-group {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+        label {
+            display: inline-block;
+            width: 100px;
+            font-weight: bold;
+            color: #333;
+            font-size: 14px;
+        }
+        .section div:not(.form-group) label {
+            font-size: 14px;
+        }
+        input[type="text"], input[type="tel"] {
+            width: 300px;
+            padding: 8px;
+            border: 1px solid #333;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        textarea {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #333;
+            border-radius: 4px;
+            box-sizing: border-box;
+            resize: vertical;
+            min-height: 150px;
+        }
+        .submit-btn {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .submit-btn:hover {
+            background-color: #45a049;
+        }
+        .submit-container {
+            text-align: center;
+            margin-top: 30px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>安全培训调查问卷</h1>
+        <div class="publisher-info">
+            <span>发布者：丁</span>
+            <span>日期：2026-02-22</span>
+        </div>
+        
+        <form action="" method="post">
+            <!-- 卷首语 -->
+            <div class="section">
+                <div style="background-color: #f9f9f9; padding: 15px; border-left: 4px solid #0066cc; margin-bottom: 20px;">
+                    <p style="margin: 0; line-height: 1.6;">尊敬的同事：</p>
+                    <p style="margin: 10px 0; line-height: 1.6;">为了进一步提升公司的安全管理水平，确保各项工作安全有序开展，我们特开展此次安全培训需求调查。您的反馈对我们制定针对性的培训计划至关重要，请您根据实际工作情况认真填写问卷。</p>
+                    <p style="margin: 10px 0; line-height: 1.6;">感谢您对安全工作的支持与配合！</p>
+                </div>
+            </div>
+            
+            <!-- 问题一：基础信息 -->
+            <div class="section">
+                <h2>一、基础信息 <span style="font-size: 14px; color: #666;">[必填]</span></h2>
+                <div class="form-group">
+                    <label for="name">姓名：</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="erp">ERP：</label>
+                    <input type="text" id="erp" name="erp" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone">电话：</label>
+                    <input type="tel" id="phone" name="phone" required>
+                </div>
+                <div class="form-group">
+                    <label for="department">部门：</label>
+                    <input type="text" id="department" name="department" required>
+                </div>
+            </div>
+            
+            <!-- 问题二：承包商进场前的资质审核与安全培训 -->
+            <div class="section">
+                <h2>二、在承包商进场前的资质审核与安全培训环节，您认为目前最大的问题是？ <span style="font-size: 14px; color: #666;">[多选]</span></h2>
+                <div style="margin-left: 20px;">
+                    <div style="margin-bottom: 10px;">
+                        <input type="checkbox" id="q2-a" name="q2" value="A">
+                        <label for="q2-a" style="width: auto; margin-left: 10px;">A. 资质审查流于形式（证件造假或过期不易察觉）</label>
+                    </div>
+                    <div style="margin-bottom: 10px;">
+                        <input type="checkbox" id="q2-b" name="q2" value="B">
+                        <label for="q2-b" style="width: auto; margin-left: 10px;">B. 入场培训针对性差（大杂烩，不针对具体工种风险）</label>
+                    </div>
+                    <div style="margin-bottom: 10px;">
+                        <input type="checkbox" id="q2-c" name="q2" value="C">
+                        <label for="q2-c" style="width: auto; margin-left: 10px;">C. 培训时间短，考核走过场（签字即合格）</label>
+                    </div>
+                    <div style="margin-bottom: 10px;">
+                        <input type="checkbox" id="q2-d" name="q2" value="D">
+                        <label for="q2-d" style="width: auto; margin-left: 10px;">D. 承包商人员更换频繁，新人未培训就上岗</label>
+                    </div>
+                    <div style="margin-bottom: 10px;">
+                        <input type="checkbox" id="q2-e" name="q2" value="E">
+                        <label for="q2-e" style="width: auto; margin-left: 10px;">E. 流程繁琐，等待时间长，影响开工效率</label>
+                    </div>
+                    <div style="margin-bottom: 10px;">
+                        <input type="checkbox" id="q2-f" name="q2" value="F">
+                        <label for="q2-f" style="width: auto; margin-left: 10px;">F. 其他：</label>
+                        <input type="text" id="q2-other" name="q2-other" style="width: 200px; margin-left: 10px;">
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 问题三：承包商作业过程中的现场管理 -->
+            <div class="section">
+                <h2>三、在承包商作业过程中，您觉得现场管理最难落实的点是？ <span style="font-size: 14px; color: #666;">[多选]</span></h2>
+                <div style="margin-left: 20px;">
+                    <div style="margin-bottom: 10px;">
+                        <input type="checkbox" id="q3-a" name="q3" value="A">
+                        <label for="q3-a" style="width: auto; margin-left: 10px;">A. 作业人员习惯性违章（如不戴安全帽、不走安全通道）</label>
+                    </div>
+                    <div style="margin-bottom: 10px;">
+                        <input type="checkbox" id="q3-b" name="q3" value="B">
+                        <label for="q3-b" style="width: auto; margin-left: 10px;">B. 施工方案与现场执行"两张皮"</label>
+                    </div>
+                    <div style="margin-bottom: 10px;">
+                        <input type="checkbox" id="q3-c" name="q3" value="C">
+                        <label for="q3-c" style="width: auto; margin-left: 10px;">C. 承包商管理人员（监护人）形同虚设，不敢管或不愿管</label>
+                    </div>
+                    <div style="margin-bottom: 10px;">
+                        <input type="checkbox" id="q3-d" name="q3" value="D">
+                        <label for="q3-d" style="width: auto; margin-left: 10px;">D. 工器具管理混乱（设备未检验、电线裸露）</label>
+                    </div>
+                    <div style="margin-bottom: 10px;">
+                        <input type="checkbox" id="q3-e" name="q3" value="E">
+                        <label for="q3-e" style="width: auto; margin-left: 10px;">E. 作业结束后的工完料净场地清执行不到位</label>
+                    </div>
+                    <div style="margin-bottom: 10px;">
+                        <input type="checkbox" id="q3-f" name="q3" value="F">
+                        <label for="q3-f" style="width: auto; margin-left: 10px;">F. 沟通障碍（指令传达不清，或承包商隐瞒问题）</label>
+                    </div>
+                    <div style="margin-bottom: 10px;">
+                        <input type="checkbox" id="q3-g" name="q3" value="G">
+                        <label for="q3-g" style="width: auto; margin-left: 10px;">G. 其他：</label>
+                        <input type="text" id="q3-other" name="q3-other" style="width: 200px; margin-left: 10px;">
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 问题四：承包商人员安全意识培训方式 -->
+            <div class="section">
+                <h2>四、针对"承包商人员安全意识薄弱"的问题，您认为最有效的培训方式是什么？ <span style="font-size: 14px; color: #666;">[多选]</span></h2>
+                <div style="margin-left: 20px;">
+                    <div style="margin-bottom: 10px;">
+                        <input type="checkbox" id="q4-a" name="q4" value="A">
+                        <label for="q4-a" style="width: auto; margin-left: 10px;">A. 集中课堂式警示教育（看视频、讲案例）</label>
+                    </div>
+                    <div style="margin-bottom: 10px;">
+                        <input type="checkbox" id="q4-b" name="q4" value="B">
+                        <label for="q4-b" style="width: auto; margin-left: 10px;">B. 现场实操演练与考核</label>
+                    </div>
+                    <div style="margin-bottom: 10px;">
+                        <input type="checkbox" id="q4-c" name="q4" value="C">
+                        <label for="q4-c" style="width: auto; margin-left: 10px;">C. 班前会（工具箱会议）的风险交底</label>
+                    </div>
+                    <div style="margin-bottom: 10px;">
+                        <input type="checkbox" id="q4-d" name="q4" value="D">
+                        <label for="q4-d" style="width: auto; margin-left: 10px;">D. 建立黑名单制度，违章即清退（以罚代培）</label>
+                    </div>
+                    <div style="margin-bottom: 10px;">
+                        <input type="checkbox" id="q4-e" name="q4" value="E">
+                        <label for="q4-e" style="width: auto; margin-left: 10px;">E. 其他：</label>
+                        <input type="text" id="q4-other" name="q4-other" style="width: 200px; margin-left: 10px;">
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 问题五：作业许可证办理或审批的困难环节 -->
+            <div class="section">
+                <h2>五、您目前在办理或审批作业许可证（如动火、受限空间、高处作业票）时，感觉最耗时或最头疼的环节是？ <span style="font-size: 14px; color: #666;">[多选]</span></h2>
+                <div style="margin-left: 20px;">
+                    <div style="margin-bottom: 10px;">
+                        <input type="checkbox" id="q6-a" name="q6" value="A">
+                        <label for="q6-a" style="width: auto; margin-left: 10px;">A. 审批流程过长，找签字人困难（各级领导不在现场）</label>
+                    </div>
+                    <div style="margin-bottom: 10px;">
+                        <input type="checkbox" id="q6-b" name="q6" value="B">
+                        <label for="q6-b" style="width: auto; margin-left: 10px;">B. 风险识别不充分（JSA/ JHA分析流于形式，全是通用风险）</label>
+                    </div>
+                    <div style="margin-bottom: 10px;">
+                        <input type="checkbox" id="q6-c" name="q6" value="C">
+                        <label for="q6-c" style="width: auto; margin-left: 10px;">C. 安全措施确认栏勾选随意（为了省事全打勾，实际未落实）</label>
+                    </div>
+                    <div style="margin-bottom: 10px;">
+                        <input type="checkbox" id="q6-d" name="q6" value="D">
+                        <label for="q6-d" style="width: auto; margin-left: 10px;">D. 气体检测等关键数据造假或未按时复测</label>
+                    </div>
+                    <div style="margin-bottom: 10px;">
+                        <input type="checkbox" id="q6-e" name="q6" value="E">
+                        <label for="q6-e" style="width: auto; margin-left: 10px;">E. 电子票系统操作复杂，或纸质票涂改不规范</label>
+                    </div>
+                    <div style="margin-bottom: 10px;">
+                        <input type="checkbox" id="q6-f" name="q6" value="F">
+                        <label for="q6-f" style="width: auto; margin-left: 10px;">F. 其他：</label>
+                        <input type="text" id="q6-other" name="q6-other" style="width: 200px; margin-left: 10px;">
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 问题六：作业许可管理抵触原因 -->
+            <div class="section">
+                <h2>六、您认为大家对作业许可管理（票证制度）抵触的主要原因是什么？ <span style="font-size: 14px; color: #666;">[多选]</span></h2>
+                <div style="margin-left: 20px;">
+                    <div style="margin-bottom: 10px;">
+                        <input type="checkbox" id="q8-a" name="q8" value="A">
+                        <label for="q8-a" style="width: auto; margin-left: 10px;">A. 认为"办票耽误干活进度"，安全给生产让路</label>
+                    </div>
+                    <div style="margin-bottom: 10px;">
+                        <input type="checkbox" id="q8-b" name="q8" value="B">
+                        <label for="q8-b" style="width: auto; margin-left: 10px;">B. 觉得风险分析模板化，对实际工作指导意义不大</label>
+                    </div>
+                    <div style="margin-bottom: 10px;">
+                        <input type="checkbox" id="q8-c" name="q8" value="C">
+                        <label for="q8-c" style="width: auto; margin-left: 10px;">C. 不清楚不同作业票之间的界面管理（如动火与高处同时作业）</label>
+                    </div>
+                    <div style="margin-bottom: 10px;">
+                        <input type="checkbox" id="q8-d" name="q8" value="D">
+                        <label for="q8-d" style="width: auto; margin-left: 10px;">D. 惩罚力度大，但正向激励少，导致瞒报或规避办票</label>
+                    </div>
+                    <div style="margin-bottom: 10px;">
+                        <input type="checkbox" id="q8-e" name="q8" value="E">
+                        <label for="q8-e" style="width: auto; margin-left: 10px;">E. 其他：</label>
+                        <input type="text" id="q8-other" name="q8-other" style="width: 200px; margin-left: 10px;">
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 问题七：沟通不畅或职责不清导致的险肇事件 -->
+            <div class="section">
+                <h2>七、您在工作中，是否遇到过因为"沟通不畅"或"职责不清"导致的险肇事件（未遂事件）？具体表现是？ <span style="font-size: 14px; color: #666;">[多选]</span></h2>
+                <div style="margin-left: 20px;">
+                    <div style="margin-bottom: 10px;">
+                        <input type="checkbox" id="q9-a" name="q9" value="A">
+                        <label for="q9-a" style="width: auto; margin-left: 10px;">A. 属地与承包商交底不清，承包商对隐蔽设施（如电缆、管道）不清楚</label>
+                    </div>
+                    <div style="margin-bottom: 10px;">
+                        <input type="checkbox" id="q9-b" name="q9" value="B">
+                        <label for="q9-b" style="width: auto; margin-left: 10px;">B. 多工种交叉作业时，缺乏统一协调人</label>
+                    </div>
+                    <div style="margin-bottom: 10px;">
+                        <input type="checkbox" id="q9-c" name="q9" value="C">
+                        <label for="q9-c" style="width: auto; margin-left: 10px;">C. 生产部门与安全部门要求冲突，承包商不知听谁的</label>
+                    </div>
+                    <div style="margin-bottom: 10px;">
+                        <input type="checkbox" id="q9-d" name="q9" value="D">
+                        <label for="q9-d" style="width: auto; margin-left: 10px;">D. 未发生明显事件，但感觉沟通效率低</label>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 问题八：希望培训涵盖的实操内容 -->
+            <div class="section">
+                <h2>八、如果开展下一阶段的专项培训，您最希望培训涵盖以下哪些实操内容？ <span style="font-size: 14px; color: #666;">[多选]</span></h2>
+                <div style="margin-left: 20px;">
+                    <div style="margin-bottom: 10px;">
+                        <input type="checkbox" id="q10-a" name="q10" value="A">
+                        <label for="q10-a" style="width: auto; margin-left: 10px;">A. 实战型JSA/ JHA分析（如何识别非常规作业风险）</label>
+                    </div>
+                    <div style="margin-bottom: 10px;">
+                        <input type="checkbox" id="q10-b" name="q10" value="B">
+                        <label for="q10-b" style="width: auto; margin-left: 10px;">B. 特殊作业（受限空间/动火）应急救援与器材使用</label>
+                    </div>
+                    <div style="margin-bottom: 10px;">
+                        <input type="checkbox" id="q10-c" name="q10" value="C">
+                        <label for="q10-c" style="width: auto; margin-left: 10px;">C. 典型事故案例复盘（还原事故发生的管理漏洞）</label>
+                    </div>
+                    <div style="margin-bottom: 10px;">
+                        <input type="checkbox" id="q10-d" name="q10" value="D">
+                        <label for="q10-d" style="width: auto; margin-left: 10px;">D. 承包商自主管理能力提升（如何当好现场监护人）</label>
+                    </div>
+                    <div style="margin-bottom: 10px;">
+                        <input type="checkbox" id="q10-e" name="q10" value="E">
+                        <label for="q10-e" style="width: auto; margin-left: 10px;">E. 法律法规与责任追溯（出了事具体要负什么法律责任）</label>
+                    </div>
+                    <div style="margin-bottom: 10px;">
+                        <input type="checkbox" id="q10-f" name="q10" value="F">
+                        <label for="q10-f" style="width: auto; margin-left: 10px;">F. 沟通与心理安全（如何拒绝违章指挥而不激化矛盾）</label>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 问题九：开放题 -->
+            <div class="section">
+                <h2>九、开放题：在实际工作中，关于承包商管理或作业许可，您遇到的最让人无奈或最想吐槽的一件事是什么？（或者您有什么好的改进建议？） <span style="font-size: 14px; color: #666;">[建议]</span></h2>
+                <div class="form-group">
+                    <textarea id="q11" name="q11" placeholder="请输入您的意见或建议"></textarea>
+                </div>
+            </div>
+            
+            <div class="submit-container">
+                <button type="submit" class="submit-btn">提交问卷</button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>
