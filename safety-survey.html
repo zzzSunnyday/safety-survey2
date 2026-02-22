@@ -50,12 +50,19 @@
             // 表单提交验证
             const form = document.querySelector('form');
             form.addEventListener('submit', function(e) {
+                // 移除之前的错误提示
+                document.querySelectorAll('.error-highlight').forEach(el => {
+                    el.classList.remove('error-highlight');
+                });
+                
                 // 验证问题2至少选择一个选项
                 const q2Checkboxes = document.querySelectorAll('input[name="q2"]');
                 const q2Checked = Array.from(q2Checkboxes).some(checkbox => checkbox.checked);
                 if (!q2Checked) {
                     e.preventDefault();
-                    alert('请回答问题二');
+                    const q2Title = document.querySelectorAll('h2')[1];
+                    q2Title.scrollIntoView({ behavior: 'smooth' });
+                    q2Title.classList.add('error-highlight');
                     return;
                 }
                 
@@ -64,7 +71,9 @@
                 const q3Checked = Array.from(q3Checkboxes).some(checkbox => checkbox.checked);
                 if (!q3Checked) {
                     e.preventDefault();
-                    alert('请回答问题三');
+                    const q3Title = document.querySelectorAll('h2')[2];
+                    q3Title.scrollIntoView({ behavior: 'smooth' });
+                    q3Title.classList.add('error-highlight');
                     return;
                 }
                 
@@ -73,7 +82,9 @@
                 const q4Checked = Array.from(q4Checkboxes).some(checkbox => checkbox.checked);
                 if (!q4Checked) {
                     e.preventDefault();
-                    alert('请回答问题四');
+                    const q4Title = document.querySelectorAll('h2')[3];
+                    q4Title.scrollIntoView({ behavior: 'smooth' });
+                    q4Title.classList.add('error-highlight');
                     return;
                 }
                 
@@ -82,7 +93,9 @@
                 const q6Checked = Array.from(q6Checkboxes).some(checkbox => checkbox.checked);
                 if (!q6Checked) {
                     e.preventDefault();
-                    alert('请回答问题五');
+                    const q6Title = document.querySelectorAll('h2')[4];
+                    q6Title.scrollIntoView({ behavior: 'smooth' });
+                    q6Title.classList.add('error-highlight');
                     return;
                 }
                 
@@ -91,7 +104,9 @@
                 const q8Checked = Array.from(q8Checkboxes).some(checkbox => checkbox.checked);
                 if (!q8Checked) {
                     e.preventDefault();
-                    alert('请回答问题六');
+                    const q8Title = document.querySelectorAll('h2')[5];
+                    q8Title.scrollIntoView({ behavior: 'smooth' });
+                    q8Title.classList.add('error-highlight');
                     return;
                 }
                 
@@ -100,7 +115,9 @@
                 const q9Checked = Array.from(q9Checkboxes).some(checkbox => checkbox.checked);
                 if (!q9Checked) {
                     e.preventDefault();
-                    alert('请回答问题七');
+                    const q9Title = document.querySelectorAll('h2')[6];
+                    q9Title.scrollIntoView({ behavior: 'smooth' });
+                    q9Title.classList.add('error-highlight');
                     return;
                 }
                 
@@ -109,18 +126,24 @@
                 const q10Checked = Array.from(q10Checkboxes).some(checkbox => checkbox.checked);
                 if (!q10Checked) {
                     e.preventDefault();
-                    alert('请回答问题八');
+                    const q10Title = document.querySelectorAll('h2')[7];
+                    q10Title.scrollIntoView({ behavior: 'smooth' });
+                    q10Title.classList.add('error-highlight');
                     return;
                 }
             });
         });
     </script>
     <style>
+        /* 基础样式 */
+        * {
+            box-sizing: border-box;
+        }
         body {
             font-family: SimHei, sans-serif;
             line-height: 1.6;
-            margin: 20px;
-            padding: 0;
+            margin: 0;
+            padding: 10px;
             background-color: #f4f4f4;
         }
         .container {
@@ -134,71 +157,160 @@
         h1 {
             text-align: center;
             color: #0066cc;
+            font-size: 20px;
+            margin-bottom: 20px;
         }
         .publisher-info {
             text-align: center;
-            margin-bottom: 30px;
+            margin-bottom: 20px;
             color: #666;
             font-size: 14px;
         }
         .publisher-info span {
-            margin: 0 50px;
+            display: block;
+            margin: 5px 0;
         }
         .section {
-            margin-bottom: 30px;
+            margin-bottom: 25px;
         }
         h2 {
             color: #333;
             border-bottom: 1px solid #ddd;
             padding-bottom: 10px;
-            font-size: 18px;
+            font-size: 16px;
+            margin-bottom: 15px;
+        }
+        .error-highlight {
+            color: #ff0000 !important;
+            border-bottom: 1px solid #ff0000 !important;
+            animation: pulse 1s infinite;
+        }
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 0 0 0 rgba(255, 0, 0, 0.7);
+            }
+            70% {
+                box-shadow: 0 0 0 10px rgba(255, 0, 0, 0);
+            }
+            100% {
+                box-shadow: 0 0 0 0 rgba(255, 0, 0, 0);
+            }
         }
         .form-group {
             margin-bottom: 15px;
             display: flex;
-            align-items: center;
+            flex-direction: column;
+            align-items: flex-start;
         }
         label {
             display: inline-block;
-            width: 100px;
+            width: 100%;
             font-weight: bold;
             color: #333;
             font-size: 14px;
+            margin-bottom: 5px;
         }
         .section div:not(.form-group) label {
             font-size: 14px;
+            margin-bottom: 5px;
         }
         input[type="text"], input[type="tel"] {
-            width: 300px;
-            padding: 8px;
+            width: 100%;
+            padding: 10px;
             border: 1px solid #333;
             border-radius: 4px;
-            box-sizing: border-box;
+            font-size: 14px;
+        }
+        input[type="checkbox"], input[type="radio"] {
+            margin-right: 8px;
+            transform: scale(1.2);
         }
         textarea {
             width: 100%;
-            padding: 8px;
+            padding: 10px;
             border: 1px solid #333;
             border-radius: 4px;
-            box-sizing: border-box;
             resize: vertical;
-            min-height: 150px;
+            min-height: 120px;
+            font-size: 14px;
+            font-family: SimHei, sans-serif;
         }
         .submit-btn {
             background-color: #4CAF50;
             color: white;
-            padding: 10px 20px;
+            padding: 12px 24px;
             border: none;
             border-radius: 4px;
             cursor: pointer;
             font-size: 16px;
+            width: 100%;
+            margin-top: 20px;
         }
         .submit-btn:hover {
             background-color: #45a049;
         }
         .submit-container {
             text-align: center;
-            margin-top: 30px;
+            margin-top: 20px;
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            body {
+                padding: 5px;
+            }
+            .container {
+                padding: 15px;
+                border-radius: 4px;
+            }
+            h1 {
+                font-size: 18px;
+            }
+            h2 {
+                font-size: 15px;
+            }
+            .section {
+                margin-bottom: 20px;
+            }
+            input[type="text"], input[type="tel"] {
+                padding: 8px;
+            }
+            textarea {
+                min-height: 100px;
+            }
+            .submit-btn {
+                padding: 10px 20px;
+                font-size: 15px;
+            }
+        }
+        
+        /* 微信浏览器特殊适配 */
+        @media screen and (max-width: 480px) {
+            body {
+                -webkit-text-size-adjust: 100%;
+                font-size: 14px;
+            }
+            .container {
+                padding: 12px;
+            }
+            h1 {
+                font-size: 17px;
+                margin-bottom: 15px;
+            }
+            h2 {
+                font-size: 14px;
+                padding-bottom: 8px;
+            }
+            .publisher-info {
+                margin-bottom: 15px;
+            }
+            input[type="checkbox"], input[type="radio"] {
+                margin-right: 6px;
+                transform: scale(1.1);
+            }
+            .section div:not(.form-group) {
+                margin-bottom: 8px;
+            }
         }
     </style>
 </head>
