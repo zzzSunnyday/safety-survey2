@@ -289,36 +289,87 @@
             body {
                 -webkit-text-size-adjust: 100%;
                 font-size: 14px;
+                padding: 0;
             }
             .container {
-                padding: 12px;
+                padding: 15px;
+                border-radius: 0;
+                box-shadow: none;
+                min-height: 100vh;
             }
             h1 {
-                font-size: 17px;
+                font-size: 18px;
                 margin-bottom: 15px;
+                color: #0066cc;
             }
             h2 {
-                font-size: 14px;
+                font-size: 15px;
                 padding-bottom: 8px;
+                line-height: 1.4;
             }
             .publisher-info {
                 margin-bottom: 15px;
+                font-size: 13px;
+            }
+            .publisher-info span {
+                margin: 0 8px;
+            }
+            .section {
+                margin-bottom: 20px;
             }
             .section div:not(.form-group) {
                 display: flex;
                 align-items: flex-start;
-                margin-bottom: 8px;
+                margin-bottom: 10px;
+                line-height: 1.4;
             }
             .section div:not(.form-group) label {
                 flex: 1;
-                margin-left: 8px;
+                margin-left: 10px;
                 word-wrap: break-word;
+                font-size: 14px;
             }
             input[type="checkbox"], input[type="radio"] {
                 margin-top: 2px;
                 margin-right: 0;
-                transform: scale(1.1);
+                transform: scale(1.2);
                 flex-shrink: 0;
+            }
+            .form-group {
+                margin-bottom: 12px;
+            }
+            input[type="text"], input[type="tel"] {
+                padding: 10px;
+                font-size: 14px;
+            }
+            textarea {
+                min-height: 100px;
+                font-size: 14px;
+                padding: 10px;
+            }
+            .submit-btn {
+                padding: 12px;
+                font-size: 16px;
+                margin-top: 15px;
+            }
+            /* 优化问题一的布局 */
+            #name, #erp, #phone, #department {
+                width: 100%;
+            }
+            /* 优化其他选项的输入框 */
+            #q2-other, #q3-other, #q4-other, #q6-other, #q8-other {
+                width: 100%;
+                margin-left: 0;
+                margin-top: 5px;
+            }
+            /* 优化卷首语 */
+            .section:first-of-type div {
+                padding: 12px;
+                margin-bottom: 15px;
+            }
+            .section:first-of-type div p {
+                margin: 8px 0;
+                font-size: 14px;
             }
         }
     </style>
@@ -389,7 +440,9 @@
                     <div style="margin-bottom: 10px;">
                         <input type="checkbox" id="q2-f" name="q2" value="F">
                         <label for="q2-f" style="width: auto; margin-left: 10px;">F. 其他：</label>
-                        <input type="text" id="q2-other" name="q2-other" style="width: 200px; margin-left: 10px;">
+                        <div style="margin-left: 40px; margin-top: 5px;">
+                            <input type="text" id="q2-other" name="q2-other" style="width: 100%;">
+                        </div>
                     </div>
                 </div>
             </div>
@@ -425,7 +478,9 @@
                     <div style="margin-bottom: 10px;">
                         <input type="checkbox" id="q3-g" name="q3" value="G">
                         <label for="q3-g" style="width: auto; margin-left: 10px;">G. 其他：</label>
-                        <input type="text" id="q3-other" name="q3-other" style="width: 200px; margin-left: 10px;">
+                        <div style="margin-left: 40px; margin-top: 5px;">
+                            <input type="text" id="q3-other" name="q3-other" style="width: 100%;">
+                        </div>
                     </div>
                 </div>
             </div>
@@ -453,7 +508,9 @@
                     <div style="margin-bottom: 10px;">
                         <input type="checkbox" id="q4-e" name="q4" value="E">
                         <label for="q4-e" style="width: auto; margin-left: 10px;">E. 其他：</label>
-                        <input type="text" id="q4-other" name="q4-other" style="width: 200px; margin-left: 10px;">
+                        <div style="margin-left: 40px; margin-top: 5px;">
+                            <input type="text" id="q4-other" name="q4-other" style="width: 100%;">
+                        </div>
                     </div>
                 </div>
             </div>
@@ -485,7 +542,9 @@
                     <div style="margin-bottom: 10px;">
                         <input type="checkbox" id="q6-f" name="q6" value="F">
                         <label for="q6-f" style="width: auto; margin-left: 10px;">F. 其他：</label>
-                        <input type="text" id="q6-other" name="q6-other" style="width: 200px; margin-left: 10px;">
+                        <div style="margin-left: 40px; margin-top: 5px;">
+                            <input type="text" id="q6-other" name="q6-other" style="width: 100%;">
+                        </div>
                     </div>
                 </div>
             </div>
@@ -513,7 +572,9 @@
                     <div style="margin-bottom: 10px;">
                         <input type="checkbox" id="q8-e" name="q8" value="E">
                         <label for="q8-e" style="width: auto; margin-left: 10px;">E. 其他：</label>
-                        <input type="text" id="q8-other" name="q8-other" style="width: 200px; margin-left: 10px;">
+                        <div style="margin-left: 40px; margin-top: 5px;">
+                            <input type="text" id="q8-other" name="q8-other" style="width: 100%;">
+                        </div>
                     </div>
                 </div>
             </div>
